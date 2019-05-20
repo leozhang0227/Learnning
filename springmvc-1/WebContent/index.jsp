@@ -9,6 +9,46 @@
 <body>
 
 
+
+<form action="springmvc/testRest" method="POST">
+<input type="submit"> Post</input>
+</form>
+
+
+<br><br>
+<form action="springmvc/testRest/1" method="POST">
+<input type="hidden" name="_method" value="DELETE"/>
+<input type="submit"> Delete</input>
+</form>
+
+<br><br>
+
+<form action="springmvc/testRest/1" method="POST">
+<input type="hidden" name="_method" value="PUT"/>
+<input type="submit"> PUT</input>
+</form>
+
+<br><br>
+<a href="springmvc/testRest/1">Rest Get</a>
+
+<br><br>
+
+
+
+
+
+<a href="springmvc/testPathVariable">Test Rest Get</a>
+
+<br><br>
+
+
+
+
+
+<a href="springmvc/testAntPath/akdfjlask/abc">Hello World</a>
+<br><br>
+<a href="springmvc/testParamsAndHeaders?username=atguigu&age=11">testParamsAndHeaders</a>
+<br><br>
 <form action="springmvc/testMethod" method="POST">
 <input type="submit"> submit</input>
 </form>
