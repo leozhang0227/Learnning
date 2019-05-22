@@ -38,7 +38,7 @@ public class MyBatisTest {
 		//传入一个唯一标识
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-		Employee employee = session.selectOne("com.atguigu.mybatis.EmployeeMapper.selectEmp", 1);
+		Employee employee = session.selectOne("com.atguigu.mybatis.test.EmployeeMapper.getEmpById", 1);
 		System.out.println(employee);
 		} finally {
 		session.close();
