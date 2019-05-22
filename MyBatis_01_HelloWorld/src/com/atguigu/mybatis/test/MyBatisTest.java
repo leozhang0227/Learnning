@@ -20,13 +20,20 @@ public class MyBatisTest {
 	 * 
 	 * 
 	 */
-	@Test
-	public void test() throws IOException
+	
+	
+	public SqlSessionFactory getSqlSessionFactory() throws IOException
 	{
 		String resource = "mybatis-config.xml";
 		InputStream inputStream = Resources.getResourceAsStream(resource);		
 		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-	
+		return sqlSessionFactory;
+	}
+	@Test
+	public void test() throws IOException
+	{
+		
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
 		//2.获取SqlSession
 		//传入一个唯一标识
 		SqlSession session = sqlSessionFactory.openSession();
@@ -36,6 +43,18 @@ public class MyBatisTest {
 		} finally {
 		session.close();
 		}
+	}
+	
+	@Test
+	public void test01() throws IOException
+	{
+		//1 获取SqlSessionFactory
+		
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+		SqlSession openSession = sqlSessionFactory.openSession();
+		EmployeeMapper mapper = openSession.getMapper(EmployeeMapper.class);
+		Employee employee = mapper.getEmpById(1);
+		System.out.println("employee="+employee);
 	}
 
 }
